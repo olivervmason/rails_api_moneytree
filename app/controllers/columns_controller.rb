@@ -1,4 +1,5 @@
 class ColumnsController < ApplicationController
+  before_action :authenticate_user
   before_action :set_column, only: [:show, :update, :destroy]
 
   # GET /columns
