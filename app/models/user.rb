@@ -1,5 +1,6 @@
 class User < ApplicationRecord
     has_secure_password
+    has_many :columns
 
     def to_token_payload
         {
