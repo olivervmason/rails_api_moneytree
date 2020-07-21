@@ -5,8 +5,8 @@ class ColumnsController < ApplicationController
 
   # GET /columns
   def index
-    @columns = Column.all
-    puts current_user.id                               #Get user id in terminal upon receiving GET request
+    @columns = current_user.columns          # Changed from default Column.all
+    puts current_user.id                     # Get user id in terminal upon receiving GET request
     render json: @columns
   end
 
