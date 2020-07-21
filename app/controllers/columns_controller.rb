@@ -12,7 +12,8 @@ class ColumnsController < ApplicationController
 
   # GET /columns/1
   def show
-    render json: @column
+    result = {column: @column, tiles: @column.tiles}
+    render json: result
   end
 
   # POST /columns
