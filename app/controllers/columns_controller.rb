@@ -31,10 +31,14 @@ class ColumnsController < ApplicationController
 
   # PATCH/PUT /columns/1
   def update
-    if @column.update(column_params)
-      render json: @column
+    if current_user.id == @column.user_id
+      if @column.update(column_params)
+        render json: @column
+      else
+        render json: @column.errors, status: :unprocessable_entity
+      end
     else
-      render json: @column.errors, status: :unprocessable_entity
+      puts "User not authenticated to update column"
     end
   end
 
