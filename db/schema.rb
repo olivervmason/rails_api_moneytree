@@ -13,30 +13,31 @@
 ActiveRecord::Schema.define(version: 2020_07_20_060746) do
 
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pgcrypto"
   enable_extension "plpgsql"
 
-  create_table "columns", force: :cascade do |t|
+  create_table "columns", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "title"
-    t.bigint "user_id"
+    t.uuid "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_columns_on_user_id"
   end
 
-  create_table "tiles", force: :cascade do |t|
+  create_table "tiles", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "title"
     t.integer "amount"
     t.boolean "type"
     t.boolean "sandbox"
     t.date "duedate"
     t.integer "trafficlight"
-    t.bigint "column_id"
+    t.uuid "column_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["column_id"], name: "index_tiles_on_column_id"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "email"
     t.string "password_digest"
     t.datetime "created_at", null: false
