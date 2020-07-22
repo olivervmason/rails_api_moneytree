@@ -40,7 +40,11 @@ class ColumnsController < ApplicationController
 
   # DELETE /columns/1
   def destroy
-    @column.destroy
+    if current_user.id == @column.user_id
+      @column.destroy
+    else
+      puts "User not authenticated to delete column"
+    end
   end
 
   private
