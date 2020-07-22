@@ -5,7 +5,8 @@ class TilesController < ApplicationController
   def index
     @tiles = Tile.all
 
-    render json: @tiles
+    # render json: @tiles
+    # Commented out in production as a security risk - includes all users!
   end
 
   # GET /tiles/1
