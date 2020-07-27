@@ -1,24 +1,7 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is the backend to the React bootcamp project MoneyTree, the frontend of which is deployed from: https://github.com/ashleybridges01/moneytree.
 
-Things you may want to cover:
+The plan for this project is documented on the repository https://github.com/olivervmason/T3FinalProjectPlanning.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+The only change to that brief was the addition of UUID's using the built in "securerandom" functionality.
