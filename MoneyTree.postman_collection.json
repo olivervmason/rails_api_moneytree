@@ -1,0 +1,798 @@
+{
+	"info": {
+		"_postman_id": "c1ea819b-6997-4339-88dc-c4fa8523fd87",
+		"name": "MoneyTree",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "GET /users",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST /users (create user)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user\": {\n        \"email\": \"Usario uno\",\n        \"password\": \"123\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST /user_token Generate JWT for existing user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"auth\": {\n        \"email\": \"Usario uno\",\n        \"password\": \"123\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/user_token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user_token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE /users/1",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1OTU0MDE3NDEsInN1YiI6MiwiZW1haWwiOiJ1c2VyMUBtYWlsLmNvbSJ9.29a7lDiRes9OAyAOMtn-p8eiI5mCBnWVurdHrVWchF8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/users/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Columns CRUD",
+			"item": [
+				{
+					"name": "GET /columns (requires JWT)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1OTU0MDQ3MDMsInN1YiI6MSwiZW1haWwiOiJ1c2VyMUBtYWlsLmNvbSJ9.iCdxs_FZ5Ud7bY2yv__X5gTdDtP6QhS-m1GcWdGXjPw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/columns",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"columns"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST /column Create column",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1OTU0MDQ3MDMsInN1YiI6MSwiZW1haWwiOiJ1c2VyMUBtYWlsLmNvbSJ9.iCdxs_FZ5Ud7bY2yv__X5gTdDtP6QhS-m1GcWdGXjPw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"column\": {\n        \"title\": \"Column created by user 1\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/columns",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"columns"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PATCH /columns",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1OTUzMDU5ODUsInN1YiI6MSwiZW1haWwiOiJlbWFpbEBhZGRyZXNzLmNvbSJ9.Xau2mrU3InlKHcO8cSJYo9tEmbeS6tDeeMN2XMaNv6Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"column\": {\n        \"title\": \"Column 2 has been changed\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/columns/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"columns",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE columns/1",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1OTUzMDU5ODUsInN1YiI6MSwiZW1haWwiOiJlbWFpbEBhZGRyZXNzLmNvbSJ9.Xau2mrU3InlKHcO8cSJYo9tEmbeS6tDeeMN2XMaNv6Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/columns/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"columns",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Tiles CRUD",
+			"item": [
+				{
+					"name": "GET /tiles",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1OTUzNzY1MTAsInN1YiI6MiwiZW1haWwiOiJ1c2VyMUBtYWlsLmNvbSJ9.ieYtwMj4Iva9eKOEGTTveCZCzCd6kl6hLOuqh5edvJA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/tiles",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tiles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST /tiles",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1OTU0ODAwMjMsInN1YiI6Ijg2YjkyZjY5LTM1NWQtNGFlZS1iYzk5LTIxZTYwODNmZGJjNCIsImVtYWlsIjoidXNlcjMifQ.noWXbiGtYqcwzl-E2Hxd9BcjKpTxUTf656PlRXIbb-4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"tile\": {\n        \"column_id\": \"6f682753-35b9-4d86-a357-4065dfdab3fb\",\n        \"title\": \"Example tile created by user 1\",\n        \"amount\": 50,\n        \"type\": false,\n        \"sandbox\": 0,\n        \"datedue\": \"2020/01/01\",\n        \"trafficlight\": 2\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/tiles",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tiles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PATCH /tiles",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 4,\n    \"title\": \"Tile 5 updated\",\n    \"amount\": 50,\n    \"sandbox\": false,\n    \"duedate\": null,\n    \"trafficlight\": 2,\n    \"column_id\": 3\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/tiles/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tiles",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE /tiles/1",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/tiles/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tiles",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Users Live",
+			"item": [
+				{
+					"name": "GET /users",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://young-garden-83966.herokuapp.com/users/",
+							"protocol": "https",
+							"host": [
+								"young-garden-83966",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST /users (create user)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user\": {\n        \"email\": \"tom\",\n        \"password\": \"123\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://young-garden-83966.herokuapp.com/users",
+							"protocol": "https",
+							"host": [
+								"young-garden-83966",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST /user_token Generate JWT for existing user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"auth\": {\n        \"email\": \"tom\",\n        \"password\": \"123\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://young-garden-83966.herokuapp.com/user_token",
+							"protocol": "https",
+							"host": [
+								"young-garden-83966",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"user_token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE /users/1",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1OTU0MDE3NDEsInN1YiI6MiwiZW1haWwiOiJ1c2VyMUBtYWlsLmNvbSJ9.29a7lDiRes9OAyAOMtn-p8eiI5mCBnWVurdHrVWchF8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://young-garden-83966.herokuapp.com/users/2",
+							"protocol": "https",
+							"host": [
+								"young-garden-83966",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"users",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Columns CRUD Live",
+			"item": [
+				{
+					"name": "GET /columns (requires JWT)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1OTU5MDQyNDksInN1YiI6IjI0ZTFiNzJjLTEzMmEtNGJlYi05MWZkLWEzMTkwMGYzMTllZCIsImVtYWlsIjoidG9tIn0.-NmyUE6rTlS3Vf2uuMutmQg6IigJA6cdt35UelugR-w",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://young-garden-83966.herokuapp.com/columns",
+							"protocol": "https",
+							"host": [
+								"young-garden-83966",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"columns"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST /column Create column",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1OTU5MDQyNDksInN1YiI6IjI0ZTFiNzJjLTEzMmEtNGJlYi05MWZkLWEzMTkwMGYzMTllZCIsImVtYWlsIjoidG9tIn0.-NmyUE6rTlS3Vf2uuMutmQg6IigJA6cdt35UelugR-w",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"column\": {\n        \"title\": \"Test column 2 created by tom\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://young-garden-83966.herokuapp.com/columns",
+							"protocol": "https",
+							"host": [
+								"young-garden-83966",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"columns"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PATCH /columns",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1OTUzMDU5ODUsInN1YiI6MSwiZW1haWwiOiJlbWFpbEBhZGRyZXNzLmNvbSJ9.Xau2mrU3InlKHcO8cSJYo9tEmbeS6tDeeMN2XMaNv6Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"column\": {\n        \"title\": \"Column 2 has been changed\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://young-garden-83966.herokuapp.com/columns/2",
+							"protocol": "https",
+							"host": [
+								"young-garden-83966",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"columns",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE columns/1",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1OTUzMDU5ODUsInN1YiI6MSwiZW1haWwiOiJlbWFpbEBhZGRyZXNzLmNvbSJ9.Xau2mrU3InlKHcO8cSJYo9tEmbeS6tDeeMN2XMaNv6Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://young-garden-83966.herokuapp.com/columns/1",
+							"protocol": "https",
+							"host": [
+								"young-garden-83966",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"columns",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Tiles CRUD Live",
+			"item": [
+				{
+					"name": "GET /tiles",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1OTU5MDQyNDksInN1YiI6IjI0ZTFiNzJjLTEzMmEtNGJlYi05MWZkLWEzMTkwMGYzMTllZCIsImVtYWlsIjoidG9tIn0.-NmyUE6rTlS3Vf2uuMutmQg6IigJA6cdt35UelugR-w",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://young-garden-83966.herokuapp.com/tiles",
+							"protocol": "https",
+							"host": [
+								"young-garden-83966",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"tiles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST /tiles",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1OTU5MDQyNDksInN1YiI6IjI0ZTFiNzJjLTEzMmEtNGJlYi05MWZkLWEzMTkwMGYzMTllZCIsImVtYWlsIjoidG9tIn0.-NmyUE6rTlS3Vf2uuMutmQg6IigJA6cdt35UelugR-w",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"tile\": {\n        \"column_id\": \"5206fe50-f00a-4592-a25a-c7aea5162af7\",\n        \"title\": \"Tile on test column\",\n        \"amount\": 50,\n        \"type\": false,\n        \"sandbox\": 0,\n        \"datedue\": \"2020/01/01\",\n        \"trafficlight\": 2\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://young-garden-83966.herokuapp.com/tiles",
+							"protocol": "https",
+							"host": [
+								"young-garden-83966",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"tiles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PATCH /tiles",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 4,\n    \"title\": \"Tile 5 updated\",\n    \"amount\": 50,\n    \"sandbox\": false,\n    \"duedate\": null,\n    \"trafficlight\": 2,\n    \"column_id\": 3\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://young-garden-83966.herokuapp.com/tiles/2",
+							"protocol": "https",
+							"host": [
+								"young-garden-83966",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"tiles",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE /tiles/1",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://young-garden-83966.herokuapp.com/tiles/4",
+							"protocol": "https",
+							"host": [
+								"young-garden-83966",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"tiles",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
